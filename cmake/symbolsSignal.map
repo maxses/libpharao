@@ -1,0 +1,22 @@
+/*----------------------------------------------------------------------------
+ *
+ * \brief List of symbols which can be removed without issues
+ *
+ *        Reason is mostly unneccessary exit-path.
+ *        Can save some 100 Bytes.
+ *
+ *--------------------------------------------------------------------------*/
+
+
+abort = abort;
+_init_signal = abort;
+_init_signal_r = abort;
+raise = abort;
+_raise_r = abort;
+signal = abort;
+_signal_r = abort;
+_sigtramp = abort;
+__sigtramp_r = abort;
+
+
+/*--- Fin ------------------------------------------------------------------*/

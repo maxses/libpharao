@@ -1,0 +1,41 @@
+/*----------------------------------------------------------------------------
+ *
+ * \brief List of symbols for io which can be mapped to biwak implementations
+ *
+ *--------------------------------------------------------------------------*/
+
+
+_fini = abort;
+_fwalk = abort;
+_fwalk_reent = abort;
+__register_exitproc = abort;
+register_fini = abort;
+__sinit_lock_release = abort;
+__tzcalc_limits = 0;
+__udivsi3 = abort;
+_ZN10__cxxabiv111__terminateEPFvvE = abort;
+_ZN10__cxxabiv119__terminate_handlerE = abort;
+_ZSt9terminatev = abort;
+_ZSt15get_new_handlerv = abort;
+_ZZ5_sbrkE1p = abort;
+_Z41__static_initialization_and_destruction_0ii = abort;
+
+register_tm_clones = abort;
+ApplicationStart = abort;
+.udivsi3_skip_div0_test = abort;
+.divsi3_skip_div0_test = abort;
+exception = abort;
+__do_global_dtors_aux = abort;
+_write.constprop.0 = 0x12345678;
+
+__gnu_thumb1_case_sqi = abort;
+__gnu_thumb1_case_uqi = abort;
+
+
+/*
+   get_eit_entry = abort;
+   _init = abort;
+*/
+
+
+/*--- Fin ------------------------------------------------------------------*/

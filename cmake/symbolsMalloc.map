@@ -1,0 +1,33 @@
+/*----------------------------------------------------------------------------
+ *
+ * \brief List of symbols which can be removed without issues
+ *
+ *        Reason is mostly unneccessary exit-path.
+ *        Can save some 100 Bytes.
+ *
+ *--------------------------------------------------------------------------*/
+
+
+/*
+   _malloc_r   directly called by malloc() on newlib
+   _sbrk_r     directly called by _malloc_r() on newlib
+   _impure_ptr Has to be at least a valid pointer
+*/
+
+/*
+   CANDis does actually free something from an 'std::list<>'.
+   _free_r = abort;
+*/
+
+free_r = abort;
+__malloc_current_mallinfo = abort;
+_realloc_r = abort;
+
+/*
+   _sbrk is an undefined reference for some reason. Have to reference it.
+*/
+_sbrk = _sbrk;
+# abort = _abort;
+
+
+/*--- Fin ------------------------------------------------------------------*/

@@ -1,0 +1,68 @@
+/*----------------------------------------------------------------------------
+ *
+ * \brief List of symbols for io which can be mapped to pharao implementations
+ *
+ *--------------------------------------------------------------------------*/
+
+
+printf = pharao_printf;
+vsnprintf = pharao_vsnprintf;
+snprintf = pharao_snprintf;
+vfprintf = pharao_vfprintf;
+
+fflush = pharao_fflush;
+fputc = pharao_fputc;
+fputs = pharao_fputs;
+fgetc = pharao_fgetc;
+fgets = pharao_fgets;
+/* fputs may get converted to fwrite by optimization */
+fwrite = pharao_fwrite;
+
+puts = pharao_puts;
+getchar = pharao_getchar;
+putchar = pharao_putchar;
+
+/* Just to make shure: kick out all suspicious candidates */
+
+_cleanup_r = abort;
+_close_r = abort;
+_dtoa_r = abort;
+_fflush_r = abort;
+__fp_lock_all = abort;
+__fp_lock = abort;
+__fp_unlock_all = abort;
+__fp_unlock = abort;
+_fwrite_r = abort;
+_lseek_r = abort,
+l_vfprintf = abort;
+_printf_i = abort;
+_puts_r = abort;
+_read_r = abort;
+setvbuf = pharao_setvbuf;
+__sf_fake_stderr = 0;
+__sf_fake_stdin = 0;
+__sf_fake_stdout = 0;
+__sflush_r = abort;
+__sfp = abort;
+__sfp_lock_release = abort;
+__sfvwrite_r = abort;
+__sread = abort;
+__sseek = abort;
+_strtol_l = abort;
+_strtol_l.part.0 = abort;
+__sinit.part.0 = abort;
+_svfprintf_r = abort;
+__swbuf_r = abort;
+__swrite = abort;
+__swsetup_r = abort;
+_vfiprintf_r = abort;
+_vfprintf_r = abort;
+viprintf = abort;
+_viprintf_r = abort;
+vprintf = abort;
+_vprintf_r = abort;
+_vsnprintf_r = abort;
+_write_r = abort;
+
+
+/*--- Fin ------------------------------------------------------------------*/
