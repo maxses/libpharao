@@ -1,6 +1,8 @@
 # libpharao
 
->>> ![16384](doc/16384.png)
+<p align="center" width="100%">
+    <img src="doc/16384.png">
+</p>
 
 ## Overview
 
