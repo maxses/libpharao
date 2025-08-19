@@ -1,0 +1,17 @@
+#------------------------------------------------------------------------------
+#
+# @brief      Git ignore file for libpharao
+#
+# @author     Maximilian Seesslen <src@seesslen.net>
+#
+#------------------------------------------------------------------------------
+
+
+build
+CMakeLists.txt.user
+CMakeLists.txt.user.*
+install
+build-*
+
+
+#--- Fin ----------------------------------------------------------------------
