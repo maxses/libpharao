@@ -11,25 +11,25 @@
 #include <pharao/print.h>
 #include <stdio.h>                     // FILE
 #include <stdarg.h>
-#include <stdint.h>
-#include <string.h>
 #include <pharao/printer.hpp>
 
-/*
- *
-#include <stdlib.h>     // malloc
-#include <lepto/lepto.h>
-*/
+// Does not make much difference, 4 bytes
+#define PHARAO_GLOBAL_STDOUT_PRINTER   1
+
 
 //---Implementation-----------------------------------------------------------
 
 
-CPrinter gp(stdout, nullptr, 6000);
+#if defined PHARAO_GLOBAL_STDOUT_PRINTER
+   CPrinter pr(stdout, nullptr, 6000);
+#endif
 
 int pharao_vfprintf ( FILE * stream, const char * format, va_list args )
 {
-   CPrinter p( stream, nullptr, 6000);
-   return( p.vprintf( format, args) );
+   #if !defined PHARAO_GLOBAL_STDOUT_PRINTER
+      CPrinter pr( stream, nullptr, 6000);
+   #endif
+   return( pr.vprintf( format, args) );
 }
 
 int pharao_vsnprintf(char *__s, size_t __n, const char *format, va_list args)

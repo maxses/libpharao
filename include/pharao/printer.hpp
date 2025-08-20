@@ -135,9 +135,6 @@ class CPrinter
        */
       void parseAlignment(const char* format, int& pos)
       {
-         // m_alignment=0;
-         // m_fillChar=' ';
-
          if( format[pos]=='0' )
          {
             m_fillChar='0';

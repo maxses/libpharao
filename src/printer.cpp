@@ -109,7 +109,8 @@ int CPrinter::vprintf(const char *format, va_list args)
    }
    if( m_dest )
    {
-      addCh( 0 );
+      // don't use addCh; it will avoid setting it when limitation is reached
+      *m_dest++=0;
    }
 
    return(m_count);
