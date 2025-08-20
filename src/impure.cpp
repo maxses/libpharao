@@ -21,8 +21,10 @@
 
 
 const uint32_t pharao_impure_data = 0x12345678;
+
 // biwak_impure_ptr has to point to something valid (0x0 is valid). The word at
-// this address is handed over.
+// this address is handed over to _malloc_r which is errno according to
+// struct _reent?
 const uint32_t* pharao_impure_ptr = (uint32_t*)&pharao_impure_data;
 
 
