@@ -13,6 +13,7 @@
 #include <stdarg.h>
 #include <stdint.h>
 #include <string.h>
+#include <stdlib.h>                    // abort()
 
 
 //---Implementation-----------------------------------------------------------
@@ -25,14 +26,14 @@ class CPrinter
    public:
       FILE* m_stream;
       char* m_dest;
-      int m_last;
-      int m_base;
-      int m_count;
+      char m_last;
+      char m_base;
+      char m_count;
       bool m_signed;
 
       // For alignment:
       char m_fillChar;
-      int m_alignment;
+      char m_alignment;
 
       constexpr CPrinter( FILE * stream, char *__s, size_t __n )
          :m_stream( stream )
@@ -43,8 +44,21 @@ class CPrinter
          ,m_signed( true )
          ,m_fillChar(' ')
          ,m_alignment(0)
-      {};
+      {
+         if( __n > 0x7f )
+         {
+            abort();
+         }
+      };
 
+      /**
+       * @brief   Get the number of digits of a printed value
+       *
+       *          Needed to align strings.
+       *
+       * @param   val value to be printed
+       * @return  number of digits
+       */
       int getDigits( uint32_t  val )
       {
          int digits=1;
@@ -55,6 +69,13 @@ class CPrinter
          return( digits );
       }
 
+      /**
+       * @brief Add character to string or output stream
+       *
+       *        Size limitation test is done for string.
+       *
+       * @param c
+       */
       void addCh(const char c)
       {
          if(m_stream)
@@ -72,6 +93,11 @@ class CPrinter
          m_count++;
       };
 
+      /**
+       * @brief   Add a string to output string or output stream
+       * @param   str  String to be printed
+       * @return  Size of string without '0'
+       */
       int puts(const char* str)
       {
          int i1=0;
@@ -82,7 +108,8 @@ class CPrinter
 
          if( m_dest )
          {
-            addCh( 0 );
+            // don't use addCh; it will avoid setting it when limitation is reached
+            *m_dest++=0;
          }
 
          return( i1 );
@@ -135,9 +162,6 @@ class CPrinter
        */
       void parseAlignment(const char* format, int& pos)
       {
-         // m_alignment=0;
-         // m_fillChar=' ';
-
          if( format[pos]=='0' )
          {
             m_fillChar='0';

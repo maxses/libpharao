@@ -1,0 +1,18 @@
+/*----------------------------------------------------------------------------
+ *
+ * \brief List of symbols for io which can be mapped to biwak implementations
+ *
+ *--------------------------------------------------------------------------*/
+
+
+__udivsi3 = abort;
+__divsi3 = abort;
+__aeabi_uidiv = abort;
+__aeabi_uidivmod = abort;
+__aeabi_idiv = abort;
+__aeabi_idivmod = abort;
+__aeabi_idiv0 = abort;
+__aeabi_ldiv0 = abort;
+
+
+/*--- Fin ------------------------------------------------------------------*/
