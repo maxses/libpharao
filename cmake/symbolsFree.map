@@ -2,20 +2,17 @@
  *
  * \brief List of symbols which can be removed without issues
  *
- *        Reason is mostly unneccessary exit-path.
- *        Can save some 100 Bytes.
+ *        Removes symbols for freeing memory.
+ *        Can save 190 Bytes on rufa.
  *
  *--------------------------------------------------------------------------*/
 
-
 /*
-   _malloc_r   directly called by malloc() on newlib
-   _sbrk_r     directly called by _malloc_r() on newlib
-   _impure_ptr Has to be at least a valid pointer
+   CANDis does actually free something from an 'std::list<>'.
 */
-
-__malloc_current_mallinfo = abort;
-_realloc_r = abort;
+_free_r = abort;
+_free = abort;
+free = abort;
 
 
 /*--- Fin ------------------------------------------------------------------*/

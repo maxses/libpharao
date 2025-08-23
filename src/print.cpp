@@ -13,24 +13,27 @@
 #include <stdarg.h>
 #include <pharao/printer.hpp>
 
-// Does not make much difference, 4 bytes
-#define PHARAO_GLOBAL_STDOUT_PRINTER   1
+// Global printer makes small overhead
+//#define PHARAO_GLOBAL_STDOUT_PRINTER   1
+#undef PHARAO_GLOBAL_STDOUT_PRINTER
 
 
 //---Implementation-----------------------------------------------------------
 
 
 #if defined PHARAO_GLOBAL_STDOUT_PRINTER
-   CPrinter pr(stdout, nullptr, 6000);
+   CPrinter pr(stdout, nullptr, 0x7F);
 #endif
-
+   
+   
 int pharao_vfprintf ( FILE * stream, const char * format, va_list args )
 {
    #if !defined PHARAO_GLOBAL_STDOUT_PRINTER
-      CPrinter pr( stream, nullptr, 6000);
+      CPrinter pr( stream, nullptr, 0x7f);
    #endif
    return( pr.vprintf( format, args) );
 }
+
 
 int pharao_vsnprintf(char *__s, size_t __n, const char *format, va_list args)
 {
@@ -60,7 +63,7 @@ int pharao_printf(const char *format, ... )
 
    // Don't use stdout; It may get interpreted from 'struct _reent *_impure_ptr'
    // which may be garbage.
-   int ilen=pharao_vfprintf((FILE*)0x12345678, format, argp);
+   int ilen=pharao_vfprintf( (FILE*)0x0, format, argp );
 
    va_end(argp);
 
