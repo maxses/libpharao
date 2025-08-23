@@ -1,9 +1,10 @@
 # libpharao
 
-<p align="center" width="100%" style="vertical-align: middle;">
-    <img src="doc/canio_2.jpg">
-    <img src="doc/16384.png">
-</p>
+<div align="center" width="100%" style="vertical-align: middle;" valign="middle">
+    <img src="doc/canio_2.jpg" height="150" style="vertical-align: middle;">
+    <br>
+    <img src="doc/16384.png" height="150" style="vertical-align: middle;">
+</div>
 
 ## Overview
 
@@ -76,7 +77,7 @@ tiny application do not ever free any memory because they just run their event
 loop forever. But some applications may need to be able to free memory.
 
 To tweak the behaviour, features can be added or removed by 
-the cmake list variables 'PHARAO_ADD_FEATURES' and 'PHARAO_ADD_FEATURES'. They 
+the cmake list variables 'PHARAO_REMOVE_FEATURES' and 'PHARAO_ADD_FEATURES'. They 
 have to be set before the 'add_subdirectory' for libpharao.
 
 Example:
@@ -101,5 +102,5 @@ Following features are available:
 | malloc (*)        | Drop some malloc symbols. Probably no impact.                           |
 | remove_divide     | Remove symbols for division (e.g. cortex-m0). Probably not very useful. |
 
-*(\*) Default setting*
+*(\*): Default setting*
 
