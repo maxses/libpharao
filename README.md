@@ -1,6 +1,7 @@
 # libpharao
 
-<p align="center" width="100%">
+<p align="center" width="100%" style="vertical-align: middle;">
+    <img src="doc/canio_2.jpg">
     <img src="doc/16384.png">
 </p>
 
@@ -11,8 +12,8 @@ reducing the binary size of small bare metal microcontroller applications. It
 assumes that the  application is not multithreaded so some symbols for reentrance 
 can be dropped. See below for further assumptions.
 
-The library does not provide additional functions. It will just shrink the 
-applications binary size.
+The library does not provide additional functionality. It will just shrink the 
+applications binary size and may overload existing functions.
 
 The library is testet with tollchains based on newlib(nano) and picolib for 
 STM32 controllers.
