@@ -15,12 +15,15 @@ fputc = pharao_fputc;
 fputs = pharao_fputs;
 fgetc = pharao_fgetc;
 fgets = pharao_fgets;
+
 /* fputs may get converted to fwrite by optimization */
 fwrite = pharao_fwrite;
 
 puts = pharao_puts;
 getchar = pharao_getchar;
 putchar = pharao_putchar;
+
+setvbuf = pharao_setvbuf;
 
 /* Just to make shure: kick out all suspicious candidates */
 
@@ -38,7 +41,6 @@ l_vfprintf = abort;
 _printf_i = abort;
 _puts_r = abort;
 _read_r = abort;
-setvbuf = pharao_setvbuf;
 __sf_fake_stderr = 0;
 __sf_fake_stdin = 0;
 __sf_fake_stdout = 0;
