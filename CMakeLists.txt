@@ -69,6 +69,7 @@ check_feature( "remove_impure" "symbolsImpure.map" )
 check_feature( "remove_signal" "symbolsSignal.map" )
 check_feature( "malloc" "symbolsMalloc.map" )
 check_feature( "remove_divide" "symbolsDivide.map" )
+check_feature( "remove_signed_divide" "symbolsSignedDivide.map" )
 # No benefit:
 check_feature( "replace_string" "symbolsString.map" )
 
