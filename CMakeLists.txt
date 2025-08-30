@@ -78,6 +78,8 @@ if( NOT ( "${CMAKE_SYSTEM_PROCESSOR}" STREQUAL "x86_64" OR HOST ) )
       ${PROJECT_NAME}
       PUBLIC
          -Wl,--just-symbols=${CMAKE_CURRENT_LIST_DIR}/cmake/symbolsMisc.map
+         # Shrink binary size by 168 Bytes
+         -nostdlib
          ${PHARAO_FLAGS}
    )
 endif()
