@@ -63,7 +63,8 @@ int pharao_printf(const char *format, ... )
 
    // Don't use stdout; It may get interpreted from 'struct _reent *_impure_ptr'
    // which may be garbage.
-   int ilen=pharao_vfprintf( (FILE*)0x0, format, argp );
+   // Don't use '0'; this is handled as 'no stream'
+   int ilen=pharao_vfprintf( (FILE*)0x01, format, argp );
 
    va_end(argp);
 
