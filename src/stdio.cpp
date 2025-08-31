@@ -160,7 +160,7 @@ int pharao_setvbuf (FILE *__restrict, char *__restrict, int, size_t)
 // unistd write command not available on picolibc
 int pharao_write_picolibc(int __fd, const void *__buf, size_t __nbyte)
 {
-   for(int i1=0; i1<__nbyte; i1++)
+   for(int i1=0; i1<(int)__nbyte; i1++)
    {
       // Correct: stdout->put
       _putc(((char*)__buf)[i1], stdout);
@@ -174,7 +174,7 @@ int pharao_write_picolibc(int __fd, const void *__buf, size_t __nbyte)
 int pharao_read_picolibc(int __fd, const void *__buf, size_t __nbyte)
 {
    int sta;
-   for(int i1=0; i1<__nbyte; i1++)
+   for(int i1=0; i1<(int)__nbyte; i1++)
    {
       // Correct: stdout->put
       if( ( sta = _getc(stdin) ) < 0 )
