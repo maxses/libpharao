@@ -17,6 +17,8 @@ __tzcalc_limits = 0;
 _ZN10__cxxabiv111__terminateEPFvvE = abort;
 _ZN10__cxxabiv119__terminate_handlerE = abort;
 _ZSt9terminatev = abort;
+
+/* Called in C++ new when malloc failed */
 _ZSt15get_new_handlerv = abort;
 _ZZ5_sbrkE1p = abort;
 _Z41__static_initialization_and_destruction_0ii = abort;
