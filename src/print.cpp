@@ -1,11 +1,18 @@
-//----------------------------------------------------------------------------
-//
-// \brief   functions for printing text with small footprint
-//
-//----------------------------------------------------------------------------
+/**---------------------------------------------------------------------------
+ *
+ * @file   print.cpp
+ * @brief  Functions for printing formated text with small footprint
+ *
+ * This file implements all variants of the printf functions and forward to
+ * CPrinter class.
+ *
+ * @date   20250818
+ * @author Maximilian Seesslen <src@seesslen.net>
+ *
+ *--------------------------------------------------------------------------*/
 
 
-//---Includes-----------------------------------------------------------------
+/*--- Includes -------------------------------------------------------------*/
 
 
 #include <pharao/print.h>
@@ -13,12 +20,12 @@
 #include <stdarg.h>
 #include <pharao/printer.hpp>
 
-// Global printer makes small overhead
+// Global printer makes even small overhead
 //#define PHARAO_GLOBAL_STDOUT_PRINTER   1
 #undef PHARAO_GLOBAL_STDOUT_PRINTER
 
 
-//---Implementation-----------------------------------------------------------
+/*--- Implementation -------------------------------------------------------*/
 
 
 #if defined PHARAO_GLOBAL_STDOUT_PRINTER
@@ -72,4 +79,4 @@ int pharao_printf(const char *format, ... )
 }
 
 
-//---fin----------------------------------------------------------------------
+/*--- Fin ------------------------------------------------------------------*/
