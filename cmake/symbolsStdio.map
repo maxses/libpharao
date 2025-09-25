@@ -16,6 +16,9 @@ fputs = pharao_fputs;
 fgetc = pharao_fgetc;
 fgets = pharao_fgets;
 
+/* needed in newlib/nano */
+getc = pharao_fgetc;
+
 /* fputs may get converted to fwrite by optimization */
 fwrite = pharao_fwrite;
 
