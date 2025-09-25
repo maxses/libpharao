@@ -41,6 +41,7 @@ int CPrinter::vprintf(const char *format, va_list args)
                   case 'x':
                   case 'p':
                      m_base=16;
+                  case 'u':
                      m_signed=false;
                   case 'd':
                      if ( format[pos] == 'p' )
